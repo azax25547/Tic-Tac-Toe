@@ -30,12 +30,12 @@ function getData(data, which_game, player) {
 
 function checkMoves(arr, player) {
   if (arr.length === 3) {
-    var comp = arr.map(val => parseInt(val, 10));
+    var comp = arr.map(val => parseInt(val, 10)).sort();
     // if (game.winning_array.includes(comp)) console.log("Hii");
     // else console.log("bye");
     game.winning_array.map(val => {
       if (JSON.stringify(comp) === JSON.stringify(val)) {
-        document.getElementById("output").innerHTML = player + " Wins";
+        document.getElementById("output").innerHTML = `${player} Wins`;
       }
     });
   } else return false;
@@ -51,5 +51,5 @@ function getSomething(data) {
     getData(data, game.round, game.roundGame);
     game.isClicked = !game.isClicked;
   }
-  console.log(game);
+  // console.log(game);
 }
