@@ -29,14 +29,28 @@ function getData(data, which_game, player) {
 }
 
 function checkMoves(arr, player) {
+  var comp = arr.map(val => parseInt(val, 10)).sort();
+  console.log(comp.join("").split(""));
   if (arr.length === 3) {
-    var comp = arr.map(val => parseInt(val, 10)).sort();
-    // if (game.winning_array.includes(comp)) console.log("Hii");
-    // else console.log("bye");
     game.winning_array.map(val => {
       if (JSON.stringify(comp) === JSON.stringify(val)) {
         document.getElementById("output").innerHTML = `${player} Wins`;
+        window.location.reload();
       }
+    });
+  } else if (arr.length > 3) {
+    game.winning_array.map(v => {
+      if (
+        comp
+          .join("")
+          .split("")
+          .some(val => {
+            return v.indexOf(val) == -1;
+          })
+      ) {
+        document.getElementById("output").innerHTML = `${player} Wins`;
+        window.location.reload();
+      } else document.getElementById("output").innerHTML = ` Draw`;
     });
   } else return false;
 }
@@ -51,5 +65,5 @@ function getSomething(data) {
     getData(data, game.round, game.roundGame);
     game.isClicked = !game.isClicked;
   }
-  // console.log(game);
+  console.log(game);
 }
