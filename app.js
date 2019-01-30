@@ -38,6 +38,7 @@ function checkMoves(arr, player) {
         window.location.reload();
       }
     });
+    //getting errors from here
   } else if (arr.length > 3) {
     game.winning_array.map(v => {
       if (
