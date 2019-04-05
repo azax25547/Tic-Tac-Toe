@@ -5,14 +5,14 @@ var game = {
   cross: [],
   round: [],
   winning_array: [
-    [1, 5, 9],
     [1, 2, 3],
-    [3, 5, 7],
     [4, 5, 6],
     [7, 8, 9],
     [1, 4, 7],
     [2, 5, 8],
-    [3, 6, 9]
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7]
   ]
 };
 
@@ -30,30 +30,18 @@ function getData(data, which_game, player) {
 
 function checkMoves(arr, player) {
   var comp = arr.map(val => parseInt(val, 10)).sort();
-  console.log(comp.join("").split(""));
-  if (arr.length === 3) {
-    game.winning_array.map(val => {
-      if (JSON.stringify(comp) === JSON.stringify(val)) {
-        document.getElementById("output").innerHTML = `${player} Wins`;
-        window.location.reload();
-      }
-    });
-    //getting errors from here
-  } else if (arr.length > 3) {
-    game.winning_array.map(v => {
-      if (
-        comp
-          .join("")
-          .split("")
-          .some(val => {
-            return v.indexOf(val) == -1;
-          })
-      ) {
-        document.getElementById("output").innerHTML = `${player} Wins`;
-        window.location.reload();
-      } else document.getElementById("output").innerHTML = ` Draw`;
-    });
-  } else return false;
+  // console.log(comp);
+  for (var i = 0; i < game.winning_array.length; i++) {
+    if (
+      comp.includes(game.winning_array[i][0]) &&
+      comp.includes(game.winning_array[i][1]) &&
+      comp.includes(game.winning_array[i][2])
+    ) {
+      console.log("Wins", player);
+    } else if (comp.length > 4) {
+      console.log("Draw");
+    }
+  }
 }
 
 function getSomething(data) {
@@ -66,5 +54,4 @@ function getSomething(data) {
     getData(data, game.round, game.roundGame);
     game.isClicked = !game.isClicked;
   }
-  console.log(game);
 }
