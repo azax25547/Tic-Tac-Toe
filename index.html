@@ -6,68 +6,75 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
-      <div class="box-container">
-        <div
-          class="box"
-          id="box-1"
-          onclick="getSomething(this)"
-          data-box="1"
-        ></div>
-        <div
-          class="box"
-          id="box-2"
-          onclick="getSomething(this)"
-          data-box="2"
-        ></div>
-        <div
-          class="box"
-          id="box-3"
-          onclick="getSomething(this)"
-          data-box="3"
-        ></div>
-      </div>
-      <div class="box-container">
-        <div
-          class="box"
-          id="box-4"
-          onclick="getSomething(this)"
-          data-box="4"
-        ></div>
-        <div
-          class="box"
-          id="box-5"
-          onclick="getSomething(this)"
-          data-box="5"
-        ></div>
-        <div
-          class="box"
-          id="box-6"
-          onclick="getSomething(this)"
-          data-box="6"
-        ></div>
-      </div>
-      <div class="box-container">
-        <div
-          class="box"
-          id="box-7"
-          onclick="getSomething(this)"
-          data-box="7"
-        ></div>
-        <div
-          class="box"
-          id="box-8"
-          onclick="getSomething(this)"
-          data-box="8"
-        ></div>
-        <div
-          class="box"
-          id="box-9"
-          onclick="getSomething(this)"
-          data-box="9"
-        ></div>
+    <h1> Tic-Tac-Toe </h1>
+      <div class="grid-container">
+          <div class="outer-grid" id="outGrid">
+            <div class="outer-square">
+              <div class="inner-grid">
+                <div 
+                class="inner-square" 
+                onclick="takeTheInput(this)"
+                data-box="1"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="2"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="3"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="4"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="5"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="6"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="7"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="8"></div>
+              </div>
+              <div class="inner-grid">
+                <div 
+                class="inner-square"
+                onclick="takeTheInput(this)"
+                data-box="9"></div>
+              </div>
+            </div>
+          </div>
       </div>
       <p id="output"></p>
     </div>
