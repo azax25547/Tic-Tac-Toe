@@ -1,83 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-  </head>
-  <body>
-    <h1> Tic-Tac-Toe </h1>
-      <div class="grid-container">
-          <div class="outer-grid" id="outGrid">
-            <div class="outer-square">
-              <div class="inner-grid">
-                <div 
-                class="inner-square" 
-                onclick="takeTheInput(this)"
-                data-box="1"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="2"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="3"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="4"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="5"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="6"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="7"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="8"></div>
-              </div>
-              <div class="inner-grid">
-                <div 
-                class="inner-square"
-                onclick="takeTheInput(this)"
-                data-box="9"></div>
-              </div>
-            </div>
-          </div>
-      </div>
-      <p id="output"></p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>
+
+<body>
+  <h1> Tic-Tac-Toe </h1>
+  <section>
+    <p>Welcome to this game. Please select the game type below.</p>
+    <label for="cars">Choose Your Game Type:</label>
+
+    <select name="gameType" id="gameType">
+      <option value="default">Select</option>
+      <option value="1">Player Vs Player</option>
+      <option value="2" disabled>With AI</option>
+      <option value="3" disabled>Player vs Player(Realtime)</option>
+    </select>
+
+    <button id="selectGame" onclick="selectGame()">Select</button>
+  </section>
+  <section>
+    <div id="pvp" style="display: none;">
+      <label for="player1">Name of Player 1: </label>
+      <input type="text" name="player1" id="player1" placeholder="Name of Player for 'X'">
+      <label for="player2">Name of Player 2: </label>
+      <input type="text" name="player2" id="player2" placeholder="Name of Player for 'O'">
     </div>
-    <script src="app.js"></script>
-  </body>
+    <div id="pai" style="display: none;">
+      <label for="player">Name of Player : </label>
+      <input type="text" name="player" id="player" placeholder="Name of Player">
+    </div>
+    <button type="button" id="start" style="display: none;" onclick="startGame();">Start Game!</button>
+  </section>
+  <section>
+    <div class="player-turn">
+
+    </div>
+  </section>
+  <section>
+    <div id="scorecard">
+      <div class="name" style="display: none;">
+        <span class="player-1-name"></span> : <span class="player-2-name"></span> <br />
+        <span class="player-1-score">0</span> : <span class="player-2-score">0</span>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="grid-container" style="display: none;">
+    <div class="outer-grid" id="outGrid">
+      <div class="outer-square">
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="1"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="2"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="3"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="4"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="5"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="6"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="7"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="8"></div>
+        </div>
+        <div class="inner-grid">
+          <div class="inner-square" onclick="takeTheInput(this)" data-box="9"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p id="output">
+  <div id="result"></div>
+  <button type="button" id="refresh" style="display: none;" onclick=window.location.reload();>Finish Game</button>
+  <button type="button" id="again" style="display: none;" onclick="playAgain()">Play Again</button>
+  </p>
+  </div>
+  <script src="app.js"></script>
+</body>
+
 </html>

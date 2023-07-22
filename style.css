@@ -24,8 +24,8 @@ div {
   position: absolute;
   left: 0;
   top: 0;
-  width: 90%;
-  height: 90%;
+  width: 60%;
+  height: 60%;
   background: #ffffff;
   margin: 5%;
   display: -webkit-flex;
@@ -51,16 +51,33 @@ div {
 }
 
 #output,
-h1 {
+h1,
+#result {
   margin-top: 15px;
   text-align: center;
   font-family: "Titillium Web", sans-serif;
   font-size: 28px;
 }
 
-.disable {
-  pointer-events: none;
+#refresh {
+  text-align: center;
+  position: absolute;
+  left: 53%;
+  right: 45%;
+  width: 150px;
+  cursor: pointer;
 }
+
+#again {
+  text-align: center;
+    position: relative;
+    left: 37%;
+    right: 80%;
+    width: 150px;
+    cursor: pointer;
+}
+
+
 
 button {
   outline: 0;
@@ -69,4 +86,18 @@ button {
   box-shadow: 1px 1px 5px 3px #333, 2px 2px 3px #ffc;
   border-radius: 5px;
   border: 5px solid #ccc;
+}
+
+
+.disable {
+  pointer-events: none;
+}
+
+.color-box {
+  
+  background-color: #10634F;
+  /* Initial background color */
+  ;
+  transition: background-color 0.5s ease;
+  /* Transition effect */
 }
