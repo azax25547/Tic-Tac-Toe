@@ -66,8 +66,6 @@ function startGame() {
     player2name.innerHTML = player2.value;
     playerTurn.innerHTML = `${player1.value}'s turn (${game.crossGame}).`;
     document.querySelector(".name").style.display = "block";
-  } else if (playerOne.value || !playerOne.value) {
-    alert("Support for AI will come very soon.!!");
   } else alert("Please fill Player1 and Player2 details correctly.");
 }
 
@@ -78,7 +76,7 @@ function playAgain() {
   for (let i = 0; i < allSquares.length; i++) {
     allSquares[i].setAttribute("onclick", "takeTheInput(this)");
     allSquares[i].innerHTML = "";
-    allSquares[i].style.background = "";
+    allSquares[i].classList.remove("color-box");
   }
   //reset game controls
   game.round = [];
